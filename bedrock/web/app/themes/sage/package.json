@@ -35,7 +35,6 @@
     "postcss-preset-env": "^6.6.0",
     "resolve-url-loader": "2.3.1",
     "run-s": "^0.0.0",
-    "tailwindcss": "^1.0.5",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4"
   },

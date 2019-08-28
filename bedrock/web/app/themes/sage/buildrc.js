@@ -1,5 +1,5 @@
 module.exports = {
-  devUrl: 'https://tinypixel.valet',
+  devUrl: 'https://dreamdefenders.valet',
   assets: {
     postCss: ['main'],
     react:   ['react-entry'],

@@ -4,7 +4,7 @@ module.exports = project => {
   const script = file => `${project.paths.scripts}/${file}`
   const stylesheet = file => `${project.paths.styles}/${file}`
 
-  project.assets.element && project.assets.element.forEach(asset =>
+  project.assets.react && project.assets.react.forEach(asset =>
     mix.block(script(`${asset}.js`), `scripts/${asset}.js`)
   )
 
@@ -19,6 +19,8 @@ module.exports = project => {
       require('tailwindcss')(project.tailwind),
     ])
   )
+
+  mix.extract().vendor()
 
   project.assets.images && cp(project.assets.images, `dist/images`)
   project.assets.svg    && cp(project.assets.svg, `dist/svg`)
