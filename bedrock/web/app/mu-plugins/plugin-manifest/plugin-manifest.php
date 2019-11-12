@@ -4,6 +4,4 @@
  * Plugin description: Load plugins for particular environments
  */
 
-if (file_exists($file = __DIR__ . '/manifest.yml')) {
-    \PrimeTime\WordPress\PluginManifest\Activation::set($manifestFile, getenv('WP_ENV'));
-}
+\PrimeTime\WordPress\PluginManifest\Activation::set(__DIR__ . '/manifest.yml', getenv('WP_ENV'));

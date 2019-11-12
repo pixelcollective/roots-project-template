@@ -1,8 +1,5 @@
 path: web/wp
 
-"@development":
-  ssh: vagrant@{project}/srv/www/{project}/current
-
 "@staging":
   ssh: web@staging.{project}/srv/www/{project}/current
 

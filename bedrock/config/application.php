@@ -1,8 +1,9 @@
 <?php
+require __DIR__ . '/bootloader.php';
 
 Env::init();
 
-$bootloader = \TinyPixel\Config\Bootloader::getInstance();
+$bootloader = Bootloader::getInstance();
 
 $bootloader->init(dirname(__DIR__));
 

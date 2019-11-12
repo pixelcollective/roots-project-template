@@ -1,6 +1,6 @@
 <?php
 
-\TinyPixel\Config\Bootloader::getInstance()::defineSet([
+Bootloader::getInstance()::defineSet([
     'SAVEQUERIES'        => true,
     'WP_DEBUG'           => true,
     'SCRIPT_DEBUG'       => true,

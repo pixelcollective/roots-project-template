@@ -1,0 +1,61 @@
+version: '3'
+services:
+  bedrock:
+    build: ./build/php-fpm
+    restart: always
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+    environment:
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - WP_ENV=${WP_ENV}
+      - WP_HOME=${WP_HOME}
+      - WP_SITEURL=${WP_SITEURL}
+      - WP_MEMORY_LIMIT=${WP_MEMORY_LIMIT}
+      - ENV_DEV=${ENV_DEV}
+      - ENV_STAGING=${ENV_STAGING}
+      - ENV_PRODUCTION=${ENV_PRODUCTION}
+      - REDIS_AUTH=${REDIS_AUTH}
+      - REDIS_CACHE_KEY_SALT=${REDIS_CACHE_KEY_SALT}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_USERNAME=${REDIS_USERNAME}
+      - S3_UPLOADS_BUCKET=${S3_UPLOADS_BUCKET}
+      - S3_UPLOADS_ENDPOINT=${S3_UPLOADS_ENDPOINT}
+      - S3_UPLOADS_KEY=${S3_UPLOADS_KEY}
+      - S3_UPLOADS_REGION=${S3_UPLOADS_REGION}
+      - S3_UPLOADS_SECRET=${S3_UPLOADS_SECRET}
+      - SENTRY_DSN=${SENTRY_DSN}
+    volumes:
+      - ./bedrock:/bedrock
+
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'bedrock'
+      MYSQL_ROOT_USERNAME: 'root'
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_USERNAME: 'root'
+      MYSQL_PASSWORD: 'password'
+    volumes:
+      - ./db:/var/lib/mysql
+
+  nginx:
+    image: nginx
+    restart: always
+    depends_on:
+      - bedrock
+    links:
+      - bedrock
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./bedrock:/bedrock
+      - ./build/nginx/conf.d:/etc/nginx/conf.d

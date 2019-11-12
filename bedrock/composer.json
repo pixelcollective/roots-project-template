@@ -22,10 +22,6 @@
       "url": "https://wpackagist.org"
     },
     {
-      "type": "composer",
-      "url": "https://packages.tinypixel.io/satispress/"
-    },
-    {
       "type": "git",
       "url": "git@github.com:wp-graphql/wp-graphql"
     },
@@ -36,10 +32,6 @@
     {
       "type": "git",
       "url": "git@github.com:wp-graphql/wp-graphql-acf"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:humanmade/s3-uploads"
     },
     {
       "type": "git",
@@ -55,10 +47,10 @@
     "composer/installers": "^1.4",
     "oscarotero/env": "^1.2.0",
     "vlucas/phpdotenv": "^3.4.0",
-    "tiny-pixel/config": "dev-master",
+    "roots/wp-config": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
-    "roots/wp-stage-switcher": "^2.0",
     "roots/wordpress": ">=5",
+    "roots/wp-stage-switcher": "^2.0",
     "roots/soil": ">=3",
     "sentry/sdk": "^2.0",
     "rarst/laps": "^3.3",
@@ -66,8 +58,6 @@
     "humanmade/wp-redis-predis-client": "dev-master",
     "primetime/wp-plugin-activation-manifest": "^1.0",
     "sybrew/the-seo-framework-extension-manager": "^2.0",
-    "tiny-packagist/advanced-custom-fields-pro": "^5.8",
-    "tiny-packagist/wp-rocket": "3.3.1.1",
     "tiny-pixel/admin-to-console": "^1.0.1",
     "tiny-pixel/wp-performant-media": ">=1.0.1",
     "wp-graphql/wp-graphiql": "^1.0.0",
@@ -77,7 +67,7 @@
     "wpackagist-plugin/disable-comments": "^1.10",
     "wpackagist-plugin/dropit": ">=1",
     "wpackagist-plugin/duplicate-post": ">=3.2.2",
-    "wpackagist-plugin/gutenberg": "^6.4",
+    "wpackagist-plugin/gutenberg": "^6.8",
     "wpackagist-plugin/imagify": ">=1.8.0",
     "wpackagist-plugin/query-monitor": "^3.3",
     "wpackagist-plugin/redirection": ">=3.3.1",
@@ -101,8 +91,7 @@
         "wpackagist-plugin/wp-redis",
         "wp-graphql/wp-graphql",
         "wp-graphql/wp-graphql-acf",
-        "wp-graphql/wp-graphiql",
-        "tiny-packagist/advanced-custom-fields-pro"
+        "wp-graphql/wp-graphiql"
       ],
       "web/app/plugins/{$name}/": [
         "type:wordpress-plugin"
@@ -112,11 +101,6 @@
       ]
     },
     "wordpress-install-dir": "web/wp"
-  },
-  "autoload": {
-    "psr-4": {
-      "TinyPixel\\": ""
-    }
   },
   "config": {
     "preferred-install": "dist"

@@ -1,7 +1,6 @@
 {
   "packages": [
-    "sage",
-    "support"
+    "sage"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,
