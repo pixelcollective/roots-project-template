@@ -19,9 +19,10 @@
 !/web/app/plugins/.gitkeep
 
 # MU Plugins
-/web/app/mu-plugins
-!/web/app/mu-plugins/plugin-manifest
-!/web/app/mu-plugins/bedrock-autoloader.php
-!/web/app/mu-plugins/disallow-indexing.php
-!/web/app/mu-plugins/register-theme-directory.php
-!/web/app/mu-plugins/.gitkeep
+/web/app/mu-plugins/advanced-custom-fields-pro
+/web/app/mu-plugins/wp-cron-runner
+/web/app/mu-plugins/wp-graphql
+/web/app/mu-plugins/wp-graphiql
+/web/app/mu-plugins/wp-graphql-acf
+/web/app/mu-plugins/wp-redis
+/web/app/mu-plugins/wp-stage-switcher

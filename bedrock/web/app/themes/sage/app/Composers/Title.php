@@ -2,7 +2,6 @@
 
 namespace App\Composers;
 
-use App\Model\Post;
 use Roots\Acorn\View\Composer;
 
 class Title extends Composer
@@ -21,27 +20,23 @@ class Title extends Composer
     /**
      * Data to be passed to view before rendering.
      *
-     * @param  array $data
-     * @param  \Illuminate\View\View $view
      * @return array
      */
-    public function with($data, $view)
+    public function with()
     {
         return [
-            'title' => $this->title($view->getName()),
-            'posts' => $this->posts(),
+            'title' => $this->title(),
         ];
     }
 
     /**
      * Returns the post title.
      *
-     * @param  \Illuminate\View\View $view
      * @return string
      */
-    public function title($view)
+    public function title()
     {
-        if ($view !== 'partials.page-header') {
+        if ($this->view !== 'partials.page-header') {
             return get_the_title();
         }
 
@@ -58,7 +53,11 @@ class Title extends Composer
         }
 
         if (is_search()) {
-            return sprintf(__('Search Results for %s', 'sage'), get_search_query());
+            /* translators: %s is replaced with the search query */
+            return sprintf(
+                __('Search Results for %s', 'sage'),
+                get_search_query()
+            );
         }
 
         if (is_404()) {
@@ -66,12 +65,5 @@ class Title extends Composer
         }
 
         return get_the_title();
-    }
-
-    public function posts()
-    {
-        $posts = Post::published()->get();
-
-        return $posts;
     }
 }

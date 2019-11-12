@@ -28,31 +28,19 @@
     "issues": "https://github.com/roots/sage/issues",
     "forum": "https://discourse.roots.io/"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git@github.com:pixelcollective/acorn-db"
-    },
-    {
-      "type": "git",
-      "url": "git@github.com:pixelcollective/support"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "App\\": "app/"
     }
   },
   "require": {
-    "php": "^7.1.3",
+    "php": "^7.2",
     "log1x/sage-directives": "^1.0",
     "log1x/sage-svg": "^1.0",
-    "roots/acorn": "dev-master",
-    "tiny-pixel/acorn-mail": "0.9.1",
-    "tiny-pixel/support": "dev-master",
-    "tiny-pixel/acorn-db": "dev-master"
+    "roots/acorn": "dev-master"
   },
   "require-dev": {
+    "filp/whoops": "^2.5",
     "squizlabs/php_codesniffer": "^3.4"
   },
   "config": {

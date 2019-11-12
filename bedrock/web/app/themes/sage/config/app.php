@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'env' => env('WP_ENV', 'production'),
+    'env' => defined('WP_ENV') ? WP_ENV : env('WP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => env('WP_DEBUG', false),
+    'debug' => WP_DEBUG,
 
     /*
     |--------------------------------------------------------------------------
@@ -121,6 +121,7 @@ return [
 
     'providers' => [
         App\Providers\ThemeServiceProvider::class,
+        // App\SomeService\SomeServiceServiceProvider::class,
     ],
 
     /*

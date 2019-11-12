@@ -10,9 +10,14 @@ use function Roots\view;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script('sage/vendor', asset('scripts/vendor.js')->uri(), [], null, true);
-    wp_enqueue_script('sage/app', asset('scripts/app.js')->uri(), ['sage/vendor'], null, true);
+    wp_enqueue_script('sage/vendor', asset('scripts/vendor.js')->uri(), ['jquery'], null, true);
+    wp_enqueue_script('sage/app', asset('scripts/app.js')->uri(), ['sage/vendor', 'jquery'], null, true);
+
     wp_add_inline_script('sage/vendor', asset('scripts/manifest.js')->contents(), 'before');
+
+    if (is_single() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
 
     $styles = ['styles/app.css'];
 

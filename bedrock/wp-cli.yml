@@ -1,11 +1,10 @@
-# site/wp-cli.yml
 path: web/wp
 
-@development:
+"@development":
   ssh: vagrant@{project}/srv/www/{project}/current
 
-@staging:
+"@staging":
   ssh: web@staging.{project}/srv/www/{project}/current
 
-@production:
+"@production":
   ssh: tinypixel@{project}/srv/www/{project}/current
